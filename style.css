@@ -85,16 +85,24 @@ body {
    ===================== */
 
 .ganesha-symbol {
-  font-size: clamp(4rem, 8vw, 6rem);
-  color: rgba(176, 123, 66, 0.14);
+  font-size: clamp(3.2rem, 10vw, 5.5rem);
 
-  margin-bottom: 2rem;
+  color: rgba(176, 123, 66, 0.16);
+
+  margin-bottom: 1.5rem;
 
   line-height: 1;
+
   z-index: 2;
 
   animation: floatGlow 5s ease-in-out infinite;
+
   user-select: none;
+
+  text-shadow:
+    0 0 20px rgba(201, 158, 89, 0.08);
+
+  font-family: 'Cormorant Garamond', serif;
 }
 
 @keyframes floatGlow {
@@ -147,8 +155,8 @@ body {
 
 .hero-names {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(3rem, 8vw, 5rem);
-  line-height: 1.08;
+  font-size: clamp(2.6rem, 9vw, 5rem);
+  line-height: 1.05;
   font-weight: 400;
   color: #4d3929;
   letter-spacing: 0.02em;
@@ -180,8 +188,9 @@ body {
 .hero-sub {
   margin-top: 1.8rem;
 
-  font-size: 11px;
-  letter-spacing: 0.28em;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  padding: 0 10px;
   text-transform: uppercase;
 
   color: #8d6f55;
@@ -196,7 +205,7 @@ body {
   margin-top: 1rem;
 
   font-family: 'Cinzel', serif;
-  font-size: 1.5rem;
+  font-size: clamp(1.1rem, 5vw, 1.5rem);
   letter-spacing: 0.12em;
 
   color: #b07b42;
@@ -272,15 +281,27 @@ body {
 @media (max-width: 768px) {
 
   .hero {
-    padding: 3rem 1.5rem;
+    padding: 2.5rem 1.4rem;
+    min-height: 92vh;
   }
 
   .hero-names {
-    line-height: 1.12;
+    font-size: 2.8rem;
+    line-height: 1.08;
   }
 
-  .divider-floral {
-    width: 110px;
+  .invited-tag {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+  }
+
+  .hero-sub {
+    font-size: 9px;
+    letter-spacing: 0.18em;
+  }
+
+  .hero-date {
+    font-size: 1.15rem;
   }
 
 }
