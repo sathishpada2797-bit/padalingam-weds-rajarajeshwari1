@@ -1,0 +1,1401 @@
+/* =====================
+   BASE & RESET
+   ===================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: #fffaf2;
+  color: #5a4a3f
+  ;
+  font-family: 'Lato', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+/* =====================
+   HERO — SOUTH INDIAN MINIMAL LUXURY
+   ===================== */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 4rem 2rem;
+  text-align: center;
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at top, rgba(194, 154, 108, 0.12), transparent 45%),
+    linear-gradient(to bottom, #fbf6ef 0%, #f3e8da 100%);
+}
+
+/* subtle luxury texture */
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.18;
+  pointer-events: none;
+
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 42px,
+      rgba(180, 140, 90, 0.025) 42px,
+      rgba(180, 140, 90, 0.025) 43px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 42px,
+      rgba(180, 140, 90, 0.025) 42px,
+      rgba(180, 140, 90, 0.025) 43px
+    );
+}
+
+/* soft golden glow */
+
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 550px;
+  height: 550px;
+  border-radius: 50%;
+  background: rgba(201, 158, 89, 0.08);
+  filter: blur(100px);
+  top: -220px;
+  z-index: 0;
+}
+
+/* =====================
+   GANESHA / OM SYMBOL
+   ===================== */
+
+.ganesha-symbol {
+  font-size: clamp(4rem, 8vw, 6rem);
+  color: rgba(176, 123, 66, 0.14);
+
+  margin-bottom: 2rem;
+
+  line-height: 1;
+  z-index: 2;
+
+  animation: floatGlow 5s ease-in-out infinite;
+  user-select: none;
+}
+
+@keyframes floatGlow {
+
+  0%, 100% {
+    transform: translateY(0px);
+    opacity: 0.12;
+  }
+
+  50% {
+    transform: translateY(-6px);
+    opacity: 0.18;
+  }
+}
+
+/* =====================
+   INVITED TAG
+   ===================== */
+
+.invited-tag {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: #a77943;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  margin-bottom: 1.8rem;
+  z-index: 2;
+}
+
+.invited-tag::before,
+.invited-tag::after {
+  content: '';
+  width: 65px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c49a62);
+}
+
+.invited-tag::after {
+  background: linear-gradient(90deg, #c49a62, transparent);
+}
+
+/* =====================
+   NAMES
+   ===================== */
+
+.hero-names {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 8vw, 5rem);
+  line-height: 1.08;
+  font-weight: 400;
+  color: #4d3929;
+  letter-spacing: 0.02em;
+  z-index: 2;
+}
+
+.hero-names em {
+  color: #b17a3f;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* elegant ampersand */
+
+.ampersand {
+  display: block;
+  margin: 0.4rem 0;
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  font-style: italic;
+  color: #c49a62;
+}
+
+/* =====================
+   SUBTEXT
+   ===================== */
+
+.hero-sub {
+  margin-top: 1.8rem;
+
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+
+  color: #8d6f55;
+  z-index: 2;
+}
+
+/* =====================
+   DATE
+   ===================== */
+
+.hero-date {
+  margin-top: 1rem;
+
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.12em;
+
+  color: #b07b42;
+  z-index: 2;
+}
+
+/* =====================
+   DIVIDER
+   ===================== */
+
+.divider-floral {
+  width: 150px;
+  height: 1px;
+  margin: 2rem auto;
+  position: relative;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #c49a62,
+    transparent
+  );
+}
+
+.divider-floral::before {
+  content: '✦';
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  background: #f6efe5;
+  padding: 0 12px;
+
+  color: #b07b42;
+  font-size: 12px;
+}
+
+/* =====================
+   SCROLL HINT
+   ===================== */
+
+.scroll-hint {
+  margin-top: 4rem;
+
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+
+  color: #9f8064;
+
+  animation: pulse 2.5s ease-in-out infinite;
+  z-index: 2;
+}
+
+@keyframes pulse {
+
+  0%, 100% {
+    opacity: 0.35;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* =====================
+   MOBILE
+   ===================== */
+
+@media (max-width: 768px) {
+
+  .hero {
+    padding: 3rem 1.5rem;
+  }
+
+  .hero-names {
+    line-height: 1.12;
+  }
+
+  .divider-floral {
+    width: 110px;
+  }
+
+}
+/* =====================
+   SECTIONS — MINIMAL SOUTH INDIAN LUXURY
+   ===================== */
+
+.section {
+  position: relative;
+  padding: 5rem 2rem;
+  overflow: hidden;
+}
+
+/* alternating creamy luxury backgrounds */
+
+.blessings-section {
+  background:
+    linear-gradient(to bottom, #fbf6ef 0%, #f5ecdf 100%);
+  text-align: center;
+}
+
+.story-section {
+  background:
+    linear-gradient(to bottom, #f8f1e7 0%, #f3e8da 100%);
+}
+
+.countdown-section {
+  background:
+    linear-gradient(to bottom, #fbf6ef 0%, #f5ecdf 100%);
+  text-align: center;
+}
+
+.events-section {
+  background:
+    linear-gradient(to bottom, #f8f1e7 0%, #f3e8da 100%);
+}
+
+.gallery-section {
+  background:
+    linear-gradient(to bottom, #fbf6ef 0%, #f5ecdf 100%);
+}
+
+.venue-section {
+  background:
+    linear-gradient(to bottom, #f8f1e7 0%, #f3e8da 100%);
+  text-align: center;
+}
+
+.wishes-section {
+  background:
+    linear-gradient(to bottom, #fbf6ef 0%, #f5ecdf 100%);
+  text-align: center;
+}
+
+/* subtle traditional texture */
+
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.12;
+
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 46px,
+      rgba(180, 140, 90, 0.025) 46px,
+      rgba(180, 140, 90, 0.025) 47px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 46px,
+      rgba(180, 140, 90, 0.025) 46px,
+      rgba(180, 140, 90, 0.025) 47px
+    );
+}
+
+/* =====================
+   SECTION TAG
+   ===================== */
+
+.section-tag {
+  position: relative;
+  z-index: 2;
+
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+
+  color: #b07b42;
+
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* =====================
+   SECTION TITLE
+   ===================== */
+
+.section-title {
+  position: relative;
+  z-index: 2;
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+
+  color: #4d3929;
+
+  text-align: center;
+  margin-bottom: 0.8rem;
+}
+
+.section-title em {
+  font-style: italic;
+  color: #b17a3f;
+}
+
+/* =====================
+   OPTIONAL SUBTEXT
+   ===================== */
+
+.section-sub {
+  position: relative;
+  z-index: 2;
+
+  max-width: 650px;
+  margin: 0 auto;
+
+  font-size: 1rem;
+  line-height: 1.8;
+
+  color: #7b6653;
+  text-align: center;
+}
+
+/* =====================
+   ELEGANT DIVIDER
+   ===================== */
+
+.section-divider {
+  width: 140px;
+  height: 1px;
+
+  margin: 1.8rem auto 2.5rem;
+  position: relative;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #c49a62,
+    transparent
+  );
+}
+
+.section-divider::before {
+  content: '✦';
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  background: #f8f1e7;
+  padding: 0 12px;
+
+  color: #b07b42;
+  font-size: 11px;
+}
+
+/* =====================
+   CARD STYLE (OPTIONAL)
+   ===================== */
+
+.luxury-card {
+  position: relative;
+  z-index: 2;
+
+  background: rgba(255, 255, 255, 0.45);
+
+  border: 1px solid rgba(201, 158, 89, 0.15);
+
+  border-radius: 24px;
+
+  padding: 2rem;
+
+  backdrop-filter: blur(8px);
+
+  box-shadow:
+    0 10px 30px rgba(120, 90, 50, 0.05);
+}
+
+/* =====================
+   MOBILE
+   ===================== */
+
+@media (max-width: 768px) {
+
+  .section {
+    padding: 4rem 1.5rem;
+  }
+
+  .section-title {
+    line-height: 1.2;
+  }
+
+  .section-divider {
+    width: 110px;
+  }
+
+}
+
+/* =====================
+   BLESSINGS SECTION
+   ===================== */
+
+.blessings-section {
+  position: relative;
+  padding: 5rem 2rem;
+  text-align: center;
+  overflow: hidden;
+
+  background:
+    linear-gradient(to bottom, #fbf6ef 0%, #f5ecdf 100%);
+}
+
+/* subtle luxury texture */
+
+.blessings-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.12;
+
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 46px,
+      rgba(180, 140, 90, 0.025) 46px,
+      rgba(180, 140, 90, 0.025) 47px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 46px,
+      rgba(180, 140, 90, 0.025) 46px,
+      rgba(180, 140, 90, 0.025) 47px
+    );
+}
+
+/* =====================
+   INVITATION SUBTEXT
+   ===================== */
+
+.invite-sub {
+  position: relative;
+  z-index: 2;
+
+  max-width: 680px;
+  margin: 1.5rem auto 0;
+
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.9;
+
+  color: #7b6653;
+}
+
+/* =====================
+   WEDS LABEL
+   ===================== */
+
+.weds-label {
+  position: relative;
+  z-index: 2;
+
+  margin-top: 1.5rem;
+
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+
+  color: #b07b42;
+}
+
+/* =====================
+   COUPLE PHOTO FRAME
+   ===================== */
+
+.couple-frame {
+  width: 260px;
+  height: 340px;
+
+  margin: 3rem auto;
+  position: relative;
+
+  overflow: hidden;
+  border-radius: 28px;
+
+  background: rgba(255,255,255,0.45);
+
+  border: 1px solid rgba(201, 158, 89, 0.18);
+
+  backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 20px 40px rgba(120, 90, 50, 0.08);
+
+  z-index: 2;
+}
+
+/* elegant frame corners */
+
+.couple-frame::before,
+.couple-frame::after {
+  content: '';
+  position: absolute;
+
+  width: 34px;
+  height: 34px;
+
+  border-style: solid;
+  border-color: rgba(196, 154, 98, 0.8);
+
+  z-index: 3;
+}
+
+.couple-frame::before {
+  top: 14px;
+  left: 14px;
+
+  border-width: 1.5px 0 0 1.5px;
+  border-radius: 10px 0 0 0;
+}
+
+.couple-frame::after {
+  bottom: 14px;
+  right: 14px;
+
+  border-width: 0 1.5px 1.5px 0;
+  border-radius: 0 0 10px 0;
+}
+
+/* =====================
+   COUPLE IMAGE
+   ===================== */
+
+.couple-img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  display: block;
+
+  filter: saturate(0.96) contrast(1.02);
+}
+
+/* =====================
+   PLACEHOLDER
+   ===================== */
+
+.couple-placeholder {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  background:
+    linear-gradient(to bottom, #f9f3eb, #f2e5d4);
+}
+
+.placeholder-icon {
+  font-size: 2rem;
+  color: rgba(176, 123, 66, 0.45);
+}
+
+.placeholder-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+
+  color: #9a7a5f;
+
+  text-align: center;
+  padding: 0 1rem;
+}
+
+/* =====================
+   MOBILE
+   ===================== */
+
+@media (max-width: 768px) {
+
+  .blessings-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .couple-frame {
+    width: 220px;
+    height: 300px;
+  }
+
+  .invite-sub {
+    font-size: 1.02rem;
+    line-height: 1.8;
+  }
+
+}
+
+/* =====================================================
+   FAMILY GRID — MINIMAL SOUTH INDIAN LUXURY
+   ===================================================== */
+
+.family-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+
+  margin-top: 2.5rem;
+}
+
+.family-side {
+  position: relative;
+
+  padding: 2rem 1.4rem;
+
+  border-radius: 24px;
+
+  background:
+    rgba(255,255,255,0.45);
+
+  border: 1px solid rgba(201, 158, 89, 0.14);
+
+  backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 10px 30px rgba(120, 90, 50, 0.05);
+
+  overflow: hidden;
+}
+
+.family-side::before {
+  content: '';
+
+  position: absolute;
+  top: 0;
+  left: 30px;
+  right: 30px;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #c49a62,
+      transparent
+    );
+}
+
+.family-side-title {
+  font-family: 'Cinzel', serif;
+
+  font-size: 10px;
+  letter-spacing: 0.35em;
+
+  color: #b07b42;
+
+  text-transform: uppercase;
+
+  margin-bottom: 1.4rem;
+  padding-bottom: 0.8rem;
+
+  border-bottom:
+    1px solid rgba(201, 158, 89, 0.12);
+}
+
+.family-member {
+  margin-bottom: 1rem;
+}
+
+.family-role {
+  font-size: 9px;
+  letter-spacing: 0.25em;
+
+  text-transform: uppercase;
+
+  color: #9a7a5f;
+
+  margin-bottom: 4px;
+}
+
+.family-name {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 1.2rem;
+  font-weight: 500;
+
+  color: #4d3929;
+}
+
+/* =====================================================
+   LOVE STORY
+   ===================================================== */
+
+.story-card {
+  position: relative;
+
+  margin-top: 2.5rem;
+  padding: 2.5rem 2rem;
+
+  border-radius: 28px;
+
+  background:
+    rgba(255,255,255,0.42);
+
+  border: 1px solid rgba(201, 158, 89, 0.16);
+
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 14px 40px rgba(120, 90, 50, 0.06);
+
+  text-align: center;
+}
+
+.story-card::before {
+  content: '';
+
+  position: absolute;
+  top: 0;
+  left: 40px;
+  right: 40px;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #c49a62,
+      transparent
+    );
+}
+
+.story-step {
+  padding-bottom: 1.8rem;
+  margin-bottom: 1.8rem;
+
+  border-bottom:
+    1px solid rgba(201, 158, 89, 0.10);
+}
+
+.story-step:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.story-num {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-family: 'Cinzel', serif;
+
+  font-size: 10px;
+  letter-spacing: 0.35em;
+
+  color: #b07b42;
+}
+
+.story-emoji {
+  display: block;
+
+  font-size: 1.8rem;
+
+  margin-bottom: 10px;
+}
+
+.story-text {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 1.25rem;
+  font-style: italic;
+  line-height: 1.8;
+
+  color: #7b6653;
+}
+
+.story-join {
+  margin-top: 2rem;
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1.8;
+
+  color: #4d3929;
+}
+
+/* =====================================================
+   COUNTDOWN
+   ===================================================== */
+
+.event-date-big {
+  margin-top: 1rem;
+
+  font-family: 'Cinzel', serif;
+
+  font-size: 1.7rem;
+  letter-spacing: 0.1em;
+
+  color: #b07b42;
+}
+
+.event-venue-small {
+  margin-top: 6px;
+
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  color: #9a7a5f;
+}
+
+.countdown-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+
+  gap: 1rem;
+
+  margin-top: 2.8rem;
+}
+
+.count-box {
+  min-width: 85px;
+
+  padding: 1.2rem 1rem;
+
+  border-radius: 22px;
+
+  background:
+    rgba(255,255,255,0.5);
+
+  border: 1px solid rgba(201, 158, 89, 0.15);
+
+  backdrop-filter: blur(8px);
+}
+
+.count-num {
+  display: block;
+
+  font-family: 'Cinzel', serif;
+
+  font-size: 2.4rem;
+  line-height: 1;
+
+  color: #b07b42;
+}
+
+.count-label {
+  display: block;
+
+  margin-top: 8px;
+
+  font-size: 9px;
+  letter-spacing: 0.28em;
+
+  text-transform: uppercase;
+
+  color: #9a7a5f;
+}
+
+.count-sep {
+  display: none;
+}
+
+/* =====================================================
+   EVENT CARD
+   ===================================================== */
+
+.event-card {
+  position: relative;
+
+  margin: 2rem 0;
+  padding: 2.4rem 2rem;
+
+  border-radius: 28px;
+
+  background:
+    rgba(255,255,255,0.45);
+
+  border: 1px solid rgba(201, 158, 89, 0.16);
+
+  backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 12px 35px rgba(120, 90, 50, 0.05);
+}
+
+.event-card::before {
+  content: '';
+
+  position: absolute;
+  top: 0;
+  left: 40px;
+  right: 40px;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #c49a62,
+      transparent
+    );
+}
+
+.event-num {
+  font-family: 'Cinzel', serif;
+
+  font-size: 10px;
+  letter-spacing: 0.35em;
+
+  text-transform: uppercase;
+
+  color: #b07b42;
+
+  margin-bottom: 0.8rem;
+}
+
+.event-name {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 2rem;
+  font-weight: 500;
+
+  color: #4d3929;
+
+  margin-bottom: 1rem;
+}
+
+.event-date {
+  font-family: 'Cinzel', serif;
+
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+
+  color: #b07b42;
+
+  margin-bottom: 0.8rem;
+}
+
+.event-detail {
+  font-size: 0.95rem;
+  line-height: 1.9;
+
+  color: #7b6653;
+}
+
+.event-detail strong {
+  color: #4d3929;
+  font-weight: 600;
+}
+
+/* =====================================================
+   GALLERY
+   ===================================================== */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 14px;
+
+  margin-top: 2.5rem;
+}
+
+.gallery-item {
+  overflow: hidden;
+
+  border-radius: 24px;
+
+  aspect-ratio: 3/4;
+
+  background:
+    rgba(255,255,255,0.4);
+
+  border: 1px solid rgba(201, 158, 89, 0.14);
+
+  box-shadow:
+    0 10px 30px rgba(120, 90, 50, 0.05);
+}
+
+.gallery-item.wide {
+  grid-column: span 2;
+  aspect-ratio: 16/9;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.5s ease,
+    filter 0.4s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.03);
+}
+
+.gallery-note {
+  margin-top: 1.4rem;
+
+  text-align: center;
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-style: italic;
+  font-size: 1rem;
+
+  color: #8c7158;
+}
+
+/* =====================================================
+   VENUE
+   ===================================================== */
+
+.venue-box {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+
+  border-top:
+    1px solid rgba(201, 158, 89, 0.16);
+}
+
+.venue-name {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 2rem;
+  font-weight: 500;
+
+  color: #4d3929;
+
+  margin-bottom: 0.6rem;
+}
+
+.venue-addr {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  letter-spacing: 0.04em;
+
+  color: #7b6653;
+
+  margin-bottom: 2rem;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 12px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px 26px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255,255,255,0.45);
+
+  border: 1px solid rgba(201, 158, 89, 0.22);
+
+  backdrop-filter: blur(8px);
+
+  font-family: 'Cinzel', serif;
+
+  font-size: 10px;
+  letter-spacing: 0.28em;
+
+  text-transform: uppercase;
+  text-decoration: none;
+
+  color: #b07b42;
+
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+
+  background:
+    rgba(201, 158, 89, 0.08);
+
+  border-color: #c49a62;
+}
+
+/* =====================================================
+   WISHES
+   ===================================================== */
+
+.wish-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 14px;
+
+  margin-top: 2.5rem;
+}
+
+.wish-input,
+.wish-textarea {
+  width: 100%;
+  max-width: 420px;
+
+  padding: 14px 18px;
+
+  border-radius: 18px;
+
+  background:
+    rgba(255,255,255,0.45);
+
+  border: 1px solid rgba(201, 158, 89, 0.16);
+
+  backdrop-filter: blur(8px);
+
+  font-family: 'Lato', sans-serif;
+  font-size: 0.95rem;
+
+  color: #4d3929;
+
+  outline: none;
+
+  transition: all 0.25s ease;
+}
+
+.wish-input::placeholder,
+.wish-textarea::placeholder {
+  color: #aa8d73;
+}
+
+.wish-input:focus,
+.wish-textarea:focus {
+  border-color: rgba(176, 123, 66, 0.45);
+
+  background:
+    rgba(255,255,255,0.6);
+}
+
+.wishes-list {
+  max-width: 420px;
+  width: 100%;
+
+  margin: 3rem auto 0;
+}
+
+.wish-item {
+  padding: 1rem 0;
+
+  border-top:
+    1px solid rgba(201, 158, 89, 0.12);
+
+  text-align: left;
+}
+
+.wish-from {
+  font-family: 'Cinzel', serif;
+
+  font-size: 10px;
+  letter-spacing: 0.2em;
+
+  color: #b07b42;
+
+  margin-bottom: 6px;
+}
+
+.wish-text {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 1.1rem;
+  font-style: italic;
+  line-height: 1.7;
+
+  color: #7b6653;
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+.footer {
+  text-align: center;
+
+  padding: 4rem 2rem;
+
+  background:
+    linear-gradient(to bottom, #f5ecdf 0%, #efe2d0 100%);
+
+  border-top:
+    1px solid rgba(201, 158, 89, 0.12);
+}
+
+.ornament {
+  font-size: 1.5rem;
+
+  color: rgba(176, 123, 66, 0.45);
+
+  margin-bottom: 1rem;
+}
+
+.footer-names {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 1.8rem;
+  font-style: italic;
+
+  color: #b07b42;
+
+  margin-bottom: 0.8rem;
+}
+
+.footer-text {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  letter-spacing: 0.08em;
+
+  color: #8c7158;
+}
+
+.footer-year {
+  margin-top: 1.5rem;
+
+  font-family: 'Cinzel', serif;
+
+  font-size: 9px;
+  letter-spacing: 0.35em;
+
+  text-transform: uppercase;
+
+  color: #b89b80;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 768px) {
+
+  .family-grid,
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-item.wide {
+    grid-column: span 1;
+  }
+
+  .event-card,
+  .story-card,
+  .family-side {
+    border-radius: 22px;
+  }
+
+  .count-box {
+    min-width: 72px;
+  }
+
+}
+
+@media (max-width: 400px) {
+
+  .family-name {
+    font-size: 1rem;
+  }
+
+  .count-num {
+    font-size: 1.9rem;
+  }
+
+  .event-name {
+    font-size: 1.7rem;
+  }
+
+}
